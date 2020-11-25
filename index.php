@@ -8,19 +8,33 @@ require_once'conexao.php';
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
    <title>Prova</title>
   </head>
 
   <body>
-<div class="login"
-   <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-   </br>
-   <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-   </br>
-   <button>login</button>
-   </div>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Página Login</h4>
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            </br>
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            </br>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+            </span>
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
