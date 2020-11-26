@@ -1,20 +1,53 @@
-<?php
-require_once'conexao.php';
-require_once'login.php';
+<?php  
+    require_once "conexao.php";
+
+
+    if(!empty($_SESSION['login'])){
+        ?>
+        <script>
+         window.location.href = "./listar.php";
+        </script>
+       <?php
+     }
+    
+   if(!empty($_POST['email']) && !empty($_POST['senha'])){
+     $email = $_POST['email'];
+     $senha = $_POST['senha'];
+
+     $stmt = $conn->prepare("SELECT * FROM usuario WHERE email = :e AND senha = :s");
+     $stmt->bindValue(':e', $email);
+     $stmt->bindValue(':s', $senha);
+     $stmt->execute();
+     $usuario = $stmt->fetch();
+
+     if(!empty($usuario)){
+        $_SESSION['login'] = $usuario['id'];
+        ?>
+        <script>
+         window.location.href = "listar.php";
+        </script>
+       <?php
+     }
+
+}
 
 ?>
-
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-   <title>Prova</title>
-  </head>
+<html>
+ <head>
+ <link  rel="stylesheet" href="../bootstrap-4.5.3-dist_/css/bootstrap.min.css">
+</head>
 
 <body>
-
+<form method="post">
+     <div class="container">
+         <label for="email">E-mail:</label>
+         <input type="text" class="form-control" name="email" id="email" placeholder="E-mail">
+     </div>
+     <div class="form-group">
+         <label for="senha">Senha:</label>
+         <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+     </div>
+     <button type="submit" class="btn btn-info">Login</button>
+</form>
 </body>
 </html>
